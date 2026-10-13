@@ -1,0 +1,1125 @@
+/* =====================================================
+   MSUAS UNIVERSITY EVENT FINDER
+   Main Stylesheet
+===================================================== */
+
+
+/* =====================================================
+   1. RESET & GLOBAL STYLES
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #172033;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   2. ACCESSIBILITY
+===================================================== */
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: #102a43;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    top: 20px;
+}
+
+:focus-visible {
+    outline: 3px solid #f4b942;
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   3. CONTAINER
+===================================================== */
+
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   4. HEADER
+===================================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #e4e9ef;
+}
+
+.header-container {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #102a43;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.logo-icon {
+    font-size: 1.7rem;
+}
+
+
+/* =====================================================
+   5. NAVIGATION
+===================================================== */
+
+.main-navigation ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.main-navigation a {
+    color: #334e68;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.main-navigation a:hover {
+    color: #1677c8;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: #102a43;
+    font-size: 1.6rem;
+}
+
+
+/* =====================================================
+   6. HERO
+===================================================== */
+
+.hero {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            135deg,
+            #102a43 0%,
+            #163f66 55%,
+            #1677c8 100%
+        );
+    color: white;
+}
+
+.hero-content {
+    padding: 90px 0;
+}
+
+.hero-text {
+    max-width: 720px;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: #1677c8;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.hero .eyebrow {
+    color: #b9dfff;
+}
+
+.hero h1 {
+    max-width: 750px;
+    margin-bottom: 22px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1.08;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin-bottom: 32px;
+    color: #e7eef5;
+    font-size: 1.1rem;
+}
+
+
+/* =====================================================
+   7. BUTTONS
+===================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 11px 20px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: #1677c8;
+    color: white;
+    box-shadow: 0 5px 15px rgba(16, 42, 67, 0.15);
+}
+
+.btn-primary:hover {
+    background: #0f67ad;
+}
+
+.btn-secondary {
+    background: white;
+    border-color: #cbd5df;
+    color: #334e68;
+}
+
+.btn-secondary:hover {
+    background: #f0f4f8;
+}
+
+
+/* =====================================================
+   8. SECTION HEADINGS
+===================================================== */
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    margin-bottom: 10px;
+    color: #102a43;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.2;
+}
+
+.section-heading p:not(.eyebrow) {
+    color: #627d98;
+}
+
+
+/* =====================================================
+   9. SEARCH SECTION
+===================================================== */
+
+.search-section {
+    padding: 75px 0;
+    background: white;
+}
+
+.search-controls {
+    display: grid;
+    grid-template-columns:
+        minmax(200px, 2fr)
+        minmax(160px, 1fr)
+        minmax(160px, 1fr)
+        auto;
+    gap: 15px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    color: #334e68;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd5df;
+    border-radius: 7px;
+    background: white;
+    color: #172033;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1677c8;
+    box-shadow: 0 0 0 3px rgba(22, 119, 200, 0.12);
+    outline: none;
+}
+
+
+/* =====================================================
+   10. EVENTS
+===================================================== */
+
+.events-section {
+    padding: 80px 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+
+/* Event Card */
+
+.event-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid #e2e8ee;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(16, 42, 67, 0.06);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(16, 42, 67, 0.12);
+}
+
+.event-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d9eaf7;
+    color: #102a43;
+    font-size: 3rem;
+}
+
+.event-content {
+    padding: 22px;
+}
+
+.event-category {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #e8f3fb;
+    color: #1265a3;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.event-title {
+    margin-bottom: 10px;
+    color: #102a43;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.event-description {
+    margin-bottom: 18px;
+    color: #627d98;
+    font-size: 0.92rem;
+}
+
+.event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+    color: #486581;
+    font-size: 0.88rem;
+}
+
+.event-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.event-actions .btn {
+    flex: 1;
+    min-width: 100px;
+    font-size: 0.85rem;
+}
+
+
+/* No events */
+
+.no-events {
+    padding: 50px 20px;
+    text-align: center;
+    background: white;
+    border: 1px dashed #bcccdc;
+    border-radius: 10px;
+}
+
+.no-events h3 {
+    margin-bottom: 8px;
+    color: #102a43;
+}
+
+.no-events p {
+    color: #627d98;
+}
+
+
+/* =====================================================
+   11. CATEGORIES
+===================================================== */
+
+.categories-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.category-card {
+    min-height: 190px;
+    padding: 25px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f7f9fb;
+    border: 1px solid #e1e8ef;
+    border-radius: 10px;
+    color: #172033;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    border-color: #1677c8;
+    box-shadow: 0 8px 20px rgba(16, 42, 67, 0.08);
+}
+
+.category-icon {
+    margin-bottom: 12px;
+    font-size: 2rem;
+}
+
+.category-name {
+    margin-bottom: 7px;
+    color: #102a43;
+    font-weight: 800;
+}
+
+.category-description {
+    color: #627d98;
+    font-size: 0.78rem;
+}
+
+
+/* =====================================================
+   12. P5.JS VISUALISATION
+===================================================== */
+
+.visualisation-section {
+    padding: 80px 0;
+    background: #eef3f7;
+}
+
+.p5-container {
+    width: 100%;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+    background: white;
+    border: 1px solid #dbe4ec;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(16, 42, 67, 0.05);
+}
+
+.p5-container canvas {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+}
+/* =====================================================
+   13. REGISTRATION FORM
+===================================================== */
+
+.registration-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.registration-form {
+    max-width: 760px;
+    display: grid;
+    gap: 20px;
+    padding: 30px;
+    background: #f7f9fb;
+    border: 1px solid #e1e8ef;
+    border-radius: 12px;
+}
+
+.registration-form .form-group {
+    gap: 8px;
+}
+
+.form-message {
+    min-height: 24px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   14. ABOUT
+===================================================== */
+
+.about-section {
+    padding: 90px 0;
+    background: #102a43;
+    color: white;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-section .eyebrow {
+    color: #b9dfff;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.about-section p:not(.eyebrow) {
+    margin-bottom: 16px;
+    color: #d8e4ee;
+}
+
+/* =====================================================
+   15. MODAL
+===================================================== */
+
+.modal[hidden] {
+    display: none !important;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(16, 42, 67, 0.7);
+}
+
+.modal-content {
+    position: relative;
+
+    width: min(600px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background: white;
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eef2f5;
+    color: #102a43;
+
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: #dce5ec;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    padding-right: 35px;
+
+    color: #102a43;
+}
+
+
+
+
+/* =====================================================
+   16. FOOTER
+===================================================== */
+
+.site-footer {
+    padding: 45px 0;
+    background: #071b2d;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.site-footer h2 {
+    margin-bottom: 8px;
+}
+
+.site-footer p {
+    color: #b7c6d4;
+    font-size: 0.9rem;
+}
+
+
+/* =====================================================
+   17. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .events-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .categories-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .search-controls {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .search-controls .btn {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   18. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .header-container {
+        min-height: 65px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-navigation ul {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        background: white;
+        border-bottom: 1px solid #e1e8ef;
+        box-shadow: 0 8px 20px rgba(16, 42, 67, 0.08);
+    }
+
+    .main-navigation ul.active {
+        display: flex;
+    }
+
+    .main-navigation li {
+        border-bottom: 1px solid #edf1f4;
+    }
+
+    .main-navigation a {
+        display: block;
+        padding: 14px 5%;
+    }
+
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-content {
+        padding: 70px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+
+    .search-controls {
+        grid-template-columns: 1fr;
+    }
+
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .categories-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .registration-form {
+        padding: 22px;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+}
+
+
+/* =====================================================
+   19. SMALL MOBILE DEVICES
+===================================================== */
+
+@media (max-width: 430px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        min-height: 150px;
+    }
+
+    .event-actions {
+        flex-direction: column;
+    }
+
+    .event-actions .btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =====================================================
+   20. REDUCE MOTION FOR ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
+
+/* =====================================================
+   LIGHT / DARK MODE TOGGLE
+===================================================== */
+
+.theme-toggle {
+    padding: 10px 16px;
+    border: 1px solid #dbe4ec;
+    border-radius: 20px;
+    background: white;
+    color: #102a43;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #eef3f7;
+}
+
+.theme-toggle:focus {
+    outline: 3px solid #8ecae6;
+    outline-offset: 2px;
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode {
+    background: #121a24;
+    color: #e8edf2;
+}
+
+
+/* Header and Navigation */
+body.dark-mode .site-header {
+    background: #172231;
+    border-bottom-color: #2b3a4d;
+}
+
+body.dark-mode .nav-links a {
+    color: #e8edf2;
+}
+
+body.dark-mode .nav-links a:hover {
+    color: #8ecae6;
+}
+
+
+/* Hero */
+body.dark-mode .hero {
+    background: #172231;
+}
+
+body.dark-mode .hero h1,
+body.dark-mode .hero p {
+    color: #e8edf2;
+}
+
+
+/* General Sections */
+body.dark-mode .section,
+body.dark-mode .events-section,
+body.dark-mode .categories-section,
+body.dark-mode .about-section,
+body.dark-mode .registration-section {
+    background: #121a24;
+}
+
+
+/* Section headings */
+body.dark-mode .section-heading h2,
+body.dark-mode .section-heading p {
+    color: #e8edf2;
+}
+
+
+/* Search and Filter Area */
+body.dark-mode .search-section {
+    background: #172231;
+}
+
+body.dark-mode .search-section label {
+    color: #e8edf2;
+}
+
+body.dark-mode .search-section input,
+body.dark-mode .search-section select {
+    background: #202d3d;
+    color: #e8edf2;
+    border-color: #3a4b60;
+}
+
+
+/* Event Cards */
+body.dark-mode .event-card {
+    background: #1b2838;
+    border-color: #304257;
+}
+
+body.dark-mode .event-card h3 {
+    color: #e8edf2;
+}
+
+body.dark-mode .event-card p {
+    color: #c4ced8;
+}
+
+
+/* Category Cards */
+body.dark-mode .category-card {
+    background: #1b2838;
+    border-color: #304257;
+}
+
+body.dark-mode .category-card h3,
+body.dark-mode .category-card p {
+    color: #e8edf2;
+}
+/* =====================================================
+   CATEGORY IMAGES
+===================================================== */
+
+.category-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.category-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.category-icon {
+    display: block;
+    margin-top: 18px;
+}
+
+.category-name {
+    display: block;
+    margin-top: 8px;
+}
+
+.category-description {
+    display: block;
+    padding: 0 20px 20px;
+}
+
+
+/* P5 Visualisation */
+body.dark-mode .p5-container {
+    background: #1b2838;
+    border-color: #304257;
+}
+
+
+/* Registration Form */
+body.dark-mode .registration-section {
+    background: #121a24;
+}
+
+body.dark-mode .registration-section label {
+    color: #e8edf2;
+}
+
+body.dark-mode .registration-section input,
+body.dark-mode .registration-section select,
+body.dark-mode .registration-section textarea {
+    background: #202d3d;
+    color: #e8edf2;
+    border-color: #3a4b60;
+}
+
+
+/* About */
+body.dark-mode .about-section p {
+    color: #c4ced8;
+}
+
+
+/* Modal */
+body.dark-mode .modal-content {
+    background: #1b2838;
+}
+
+body.dark-mode .modal-content h2 {
+    color: #e8edf2;
+}
+
+body.dark-mode .modal-content p {
+    color: #c4ced8;
+}
+
+body.dark-mode .modal-close {
+    background: #304257;
+    color: #e8edf2;
+}
+
+body.dark-mode .modal-close:hover {
+    background: #40546a;
+}
+
+
+/* Footer */
+body.dark-mode .site-footer {
+    background: #0d141d;
+    color: #c4ced8;
+}
+
+
+/* Dark Mode Toggle */
+body.dark-mode .theme-toggle {
+    background: #202d3d;
+    color: #e8edf2;
+    border-color: #3a4b60;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #304257;
+}
+/* =====================================================
+   MULTIMEDIA SECTION
+===================================================== */
+
+.multimedia-section {
+    padding: 80px 0;
+    background: #f5f7fa;
+}
+
+.multimedia-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.media-card {
+    background: white;
+    padding: 25px;
+    border: 1px solid #dbe4ec;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(16, 42, 67, 0.05);
+}
+
+.media-card h3 {
+    margin-bottom: 10px;
+    color: #102a43;
+}
+
+.media-card p {
+    margin-bottom: 20px;
+    color: #52606d;
+}
+
+.media-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Video */
+
+.media-card video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Audio */
+
+.media-card audio {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+}

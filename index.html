@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="MSUAS University Event Finder - Find academic, career, sports, social and workshop events.">
+
+    <title>MSUAS University Event Finder</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- P5.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Accessibility: Skip to main content -->
+    <a href="#main-content" class="skip-link">
+        Skip to main content
+    </a>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <div class="container header-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-icon">🎓</span>
+                <span>MSUAS Events</span>
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav class="main-navigation" aria-label="Main navigation">
+
+                <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                    ☰
+                </button>
+
+                <ul id="navMenu">
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#events">Events</a>
+                    </li>
+
+                    <li>
+                        <a href="#categories">Categories</a>
+                    </li>
+
+                    <li>
+                        <a href="#visualisation">Visualisation</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                </ul>
+                <button
+                     type="button"
+                      id="themeToggle"
+                     class="theme-toggle"
+                     aria-label="Switch to dark mode">
+                     🌙 Dark Mode
+                </button>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main id="main-content">
+
+
+        <!-- =========================
+             HERO SECTION
+        ========================== -->
+
+        <section id="home" class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <p class="eyebrow">
+                        MANICALAND STATE UNIVERSITY OF APPLIED SCIENCES
+                    </p>
+
+                    <h1>
+                        Discover What's Happening on Campus
+                    </h1>
+
+                    <p class="hero-description">
+                        Find academic activities, career opportunities,
+                        sports, workshops and social events all in one place.
+                    </p>
+
+                    <a href="#events" class="btn btn-primary">
+                        Explore Events
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SEARCH & FILTER
+        ========================== -->
+
+        <section class="search-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        FIND AN EVENT
+                    </p>
+
+                    <h2>
+                        Search and Filter Events
+                    </h2>
+
+                    <p>
+                        Quickly find an event that matches your interests.
+                    </p>
+
+                </div>
+
+
+                <div class="search-controls">
+
+                    <!-- Search -->
+
+                    <div class="form-group">
+
+                        <label for="searchInput">
+                            Search events
+                        </label>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="e.g. Career Fair"
+                            autocomplete="off">
+
+                    </div>
+
+
+                    <!-- Category -->
+
+                    <div class="form-group">
+
+                        <label for="categoryFilter">
+                            Category
+                        </label>
+
+                        <select id="categoryFilter">
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="Academic">
+                                Academic
+                            </option>
+
+                            <option value="Career">
+                                Career
+                            </option>
+
+                            <option value="Sports">
+                                Sports
+                            </option>
+
+                            <option value="Social">
+                                Social
+                            </option>
+
+                            <option value="Workshop">
+                                Workshop
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Date -->
+
+                    <div class="form-group">
+
+                        <label for="dateFilter">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dateFilter">
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="clearFilters"
+                        class="btn btn-secondary">
+
+                        Clear Filters
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EVENTS SECTION
+        ========================== -->
+
+        <section id="events" class="events-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        UPCOMING EVENTS
+                    </p>
+
+                    <h2>
+                        Events You May Like
+                    </h2>
+
+                    <p id="eventCount">
+                        Showing upcoming events
+                    </p>
+
+                </div>
+
+
+                <!-- JavaScript will insert event cards here -->
+
+                <div
+                    id="eventsContainer"
+                    class="events-grid">
+
+                </div>
+
+
+                <!-- Message shown when no events are found -->
+
+                <div
+                    id="noEventsMessage"
+                    class="no-events"
+                    hidden>
+
+                    <h3>
+                        No events found
+                    </h3>
+
+                    <p>
+                        Try changing your search or filter options.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CATEGORIES
+        ========================== -->
+
+        <section id="categories" class="categories-section">
+
+```
+<div class="container">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            BROWSE
+        </p>
+
+        <h2>
+            Explore Event Categories
+        </h2>
+
+    </div>
+
+
+    <div class="categories-grid">
+
+
+        <!-- Academic -->
+        <button
+            class="category-card"
+            data-category="Academic">
+
+            <img
+                src="images/academic.PNG"
+                alt="Academic events"
+                class="category-image">
+
+            <span class="category-icon">
+                📚
+            </span>
+
+            <span class="category-name">
+                Academic
+            </span>
+
+            <span class="category-description">
+                Seminars, research and academic activities
+            </span>
+
+        </button>
+
+
+        <!-- Career -->
+        <button
+            class="category-card"
+            data-category="Career">
+
+            <img
+                src="images/Career.PNG"
+                alt="Career events"
+                class="category-image">
+
+            <span class="category-icon">
+                💼
+            </span>
+
+            <span class="category-name">
+                Career
+            </span>
+
+            <span class="category-description">
+                Career fairs and professional opportunities
+            </span>
+
+        </button>
+
+
+        <!-- Sports -->
+        <button
+            class="category-card"
+            data-category="Sports">
+
+            <img
+                src="images/sport.PNG"
+                alt="Sports events"
+                class="category-image">
+
+            <span class="category-icon">
+                ⚽
+            </span>
+
+            <span class="category-name">
+                Sports
+            </span>
+
+            <span class="category-description">
+                Sporting events and competitions
+            </span>
+
+        </button>
+
+
+        <!-- Social -->
+        <button
+            class="category-card"
+            data-category="Social">
+
+            <img
+                src="images/social.PNG"
+                alt="Social events"
+                class="category-image">
+
+            <span class="category-icon">
+                🎉
+            </span>
+
+            <span class="category-name">
+                Social
+            </span>
+
+            <span class="category-description">
+                Student social activities and gatherings
+            </span>
+
+        </button>
+
+
+        <!-- Workshops -->
+        <button
+            class="category-card"
+            data-category="Workshop">
+
+            <img
+                src="images/workshop.PNG"
+                alt="Workshop events"
+                class="category-image">
+
+            <span class="category-icon">
+                🛠️
+            </span>
+
+            <span class="category-name">
+                Workshops
+            </span>
+
+            <span class="category-description">
+                Practical training and learning sessions
+            </span>
+
+        </button>
+
+
+    </div>
+
+</div>
+```
+
+</section>
+
+        <!-- =========================
+             P5.JS VISUALISATION
+        ========================== -->
+
+        <section
+            id="visualisation"
+            class="visualisation-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        INTERACTIVE MULTIMEDIA
+                    </p>
+
+                    <h2>
+                        Campus Event Activity
+                    </h2>
+
+                    <p>
+                        This interactive visualisation represents
+                        event activity across different categories.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="p5-container"
+                    class="p5-container">
+
+                </div>
+<section id="multimedia" class="multimedia-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                MULTIMEDIA
+            </p>
+
+            <h2>
+                Experience Campus Events
+            </h2>
+
+            <p>
+                Explore campus life through video and audio
+                multimedia content.
+            </p>
+
+        </div>
+
+
+        <div class="multimedia-grid">
+
+            <!-- VIDEO -->
+            <div class="media-card">
+
+                <div class="media-icon">
+                    🎬
+                </div>
+
+                <h3>
+                    Campus Events Video
+                </h3>
+
+                <p>
+                    Watch a short video showcasing campus
+                    activities and student life.
+                </p>
+
+                <video controls>
+                    <source
+                        src="visualizations/campusvid.mp4"
+                        type="video/mp4">
+
+                    Your browser does not support the video element.
+
+                </video>
+
+            </div>
+
+
+            <!-- AUDIO -->
+            <div class="media-card">
+
+                <div class="media-icon">
+                    🔔
+                </div>
+
+                <h3>
+                    Campus Event Bell
+                </h3>
+
+                <p>
+                    Listen to the campus bell used to signal
+                    the beginning of an event or activity.
+                </p>
+
+                <audio controls>
+                    <source
+                        src="audio/school-bell.mp3"
+                        type="audio/mpeg">
+
+                    Your browser does not support the audio element.
+
+                </audio>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- =========================
+             EVENT REGISTRATION
+        ========================== -->
+
+        <section id="registration" class="registration-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        GET INVOLVED
+                    </p>
+
+                    <h2>
+                        Register Your Interest
+                    </h2>
+
+                    <p>
+                        Submit your details to receive information
+                        about university events.
+                    </p>
+
+                </div>
+
+
+                <form id="registrationForm" class="registration-form">
+
+
+                    <div class="form-group">
+
+                        <label for="studentName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            name="studentName"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="studentEmail">
+                            Student Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="studentEmail"
+                            name="studentEmail"
+                            placeholder="Enter your email address"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="interestCategory">
+                            Area of Interest
+                        </label>
+
+                        <select
+                            id="interestCategory"
+                            name="interestCategory"
+                            required>
+
+                            <option value="">
+                                Select a category
+                            </option>
+
+                            <option value="Academic">
+                                Academic
+                            </option>
+
+                            <option value="Career">
+                                Career
+                            </option>
+
+                            <option value="Sports">
+                                Sports
+                            </option>
+
+                            <option value="Social">
+                                Social
+                            </option>
+
+                            <option value="Workshop">
+                                Workshop
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="studentMessage">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="studentMessage"
+                            name="studentMessage"
+                            rows="5"
+                            placeholder="Tell us what type of events interest you...">
+                        </textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Submit Registration
+
+                    </button>
+
+
+                    <p
+                        id="formMessage"
+                        class="form-message"
+                        role="status">
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about" class="about-section">
+
+            <div class="container about-content">
+
+                <div>
+
+                    <p class="eyebrow">
+                        ABOUT THE SYSTEM
+                    </p>
+
+                    <h2>
+                        University Event Finder
+                    </h2>
+
+                    <p>
+                        The University Event Finder is a responsive
+                        multimedia web application designed to help
+                        MSUAS students discover university events
+                        through one accessible digital platform.
+                    </p>
+
+                    <p>
+                        The application reduces the need to search
+                        through multiple information sources such as
+                        noticeboards, social media and departmental
+                        offices.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         EVENT DETAILS MODAL
+    ========================== -->
+
+    <div
+        id="eventModal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        hidden>
+
+        <div class="modal-content">
+
+            <button
+                type="button"
+                id="closeModal"
+                class="modal-close"
+                aria-label="Close event details">
+
+                &times;
+
+            </button>
+
+
+            <div id="modalBody">
+
+                <h2 id="modalTitle">
+                    Event Details
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <h2>
+                    MSUAS Events
+                </h2>
+
+                <p>
+                    Connecting students with university activities.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    &copy; 2026 MSUAS University Event Finder
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="js/app.js"></script>
+
+    <!-- P5.js sketch -->
+
+    <script src="p5/sketch.js"></script>
+
+</body>
+
+</html>
